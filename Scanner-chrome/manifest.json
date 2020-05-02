@@ -1,0 +1,55 @@
+{
+	"manifest_version": 2,
+	"name": "scanner",
+	"version": "1.0.0",
+	"description": "scanner",
+	"icons":
+	{
+		"16": "img/search16.png",
+		"48": "img/search48.png",
+		"128": "img/search64.png"
+	},
+	"background":
+	{
+		"page": "main.html"
+	},
+	"browser_action": 
+	{
+		"default_icon": "img/search16.png",
+		"default_title": "被动式扫描插件",
+		"default_popup": "popup.html"
+	},
+
+	"content_scripts": 
+	[
+		{
+
+			"matches": ["<all_urls>"],
+			"js": ["js/inject.js"],
+			"run_at": "document_start"
+		}
+	],
+	"permissions":
+	[
+        "debugger",
+		"contextMenus", 
+		"tabs", 
+		"notifications", 
+		"webRequest", 
+		"webRequestBlocking",
+		"storage", 
+		"http://*/*", 
+		"https://*/*"
+	],
+
+
+	"options_page": "options.html",
+	"options_ui":
+	{
+		"page": "options.html",
+		"chrome_style": true
+	},
+	"omnibox": { "keyword" : "go" },
+    "devtools_page": "devtools.html",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
