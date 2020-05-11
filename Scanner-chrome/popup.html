@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./libs/element-ui.css">
+    <script src="./libs/vue.js"></script>
+    <script src="./libs/element-ui.js"></script>
+    
 </head>
 <body>
-    popup
+    <div id="app">
+        <el-main>
+            <el-row>
+                <el-card>
+                    <div class="panel">
+                        <el-input v-model="form.filter"></el-input>
+                        <el-button @click="changeFilter"></el-button>
+                    </div>
+                </el-card>
+            </el-row>
+            <el-row>
+                
+            </el-row>
+        </el-main>
+   </div>
 </body>
+<style scoped>
+    #app{
+        width: 400px;
+        height: 150px;
+    }
+    .panel{
+        display:flex;
+        justify-content: space-around;
+        
+    }
+</style>
+<script src="./popup.js"></script>
 </html>
